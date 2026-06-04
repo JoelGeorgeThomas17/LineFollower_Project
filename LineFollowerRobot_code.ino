@@ -131,7 +131,7 @@ void setM2speed(float speed) {
     last_dir = current_dir;
 }
 
-void LineFollow_bangbang() {
+void LineFollow_threshold() {
     uint16_t POT_value = ReadADCSingleConversion(7);
     float set_speed_right = ((float)POT_value / 1024);
     float set_speed_left = 0.8 * set_speed_right;
@@ -223,7 +223,7 @@ int main(void) {
   else{
         uint8_t pd4_high = (PIND & (1 << PD4));
        
-        if (!pd4_high) {LineFollow_bangbang();}
+        if (!pd4_high) {LineFollow_threshold();}
         else{ LineFollow_PMode();}
 
         }
